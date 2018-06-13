@@ -28,6 +28,10 @@ class AuthorizeResponse extends AbstractResponse implements RedirectResponseInte
 
     public function getMessage()
     {
+        if ($this->getCode() === 401) {
+            return null;
+        }
+
         if (false === $this->isRedirect()) {
             $message = '';
 
